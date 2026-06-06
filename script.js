@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let isAnimating = true;
+        let isAnimating = false;
 
         function animateParticles() {
             if (!isAnimating) return;
