@@ -210,67 +210,7 @@
                 </div>
             </div>
 
-            <!-- Interactive Cost Estimator -->
-            <div class="estimator-section reveal-up" style="margin-top: 80px; padding: 50px 30px; background: var(--card-bg); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 60px;">
-                <h3 style="font-size: 2rem; margin-bottom: 15px; text-align: center;">Estimate Your Custom Project</h3>
-                <p style="color: var(--text-muted); text-align: center; margin-bottom: 40px;">Select your requirements to calculate a real-time price estimate and connect with us.</p>
-                
-                <form id="estimatorForm" style="display: flex; flex-direction: column; gap: 25px;">
-                    <!-- Project Type -->
-                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
-                        <label for="projectType" style="font-weight: 600; color: #fff; text-align: left;">Project Type</label>
-                        <select id="projectType" style="padding: 12px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #fff; font-family: inherit; font-size: 1rem; cursor: pointer; outline: none; transition: border-color 0.3s;">
-                            <option value="3000">Starter / Personal Website (Base: ₹3,000)</option>
-                            <option value="6000" selected>Business Website (Base: ₹6,000)</option>
-                            <option value="12000">E-Commerce Store (Base: ₹12,000)</option>
-                            <option value="20000">Custom Web Application (Base: ₹20,000)</option>
-                        </select>
-                    </div>
-
-                    <!-- Number of Pages -->
-                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label for="pageCount" style="font-weight: 600; color: #fff; text-align: left;">Number of Pages</label>
-                            <span id="pageValue" style="color: var(--primary-color); font-weight: 600;">5 Pages</span>
-                        </div>
-                        <input type="range" id="pageCount" min="1" max="25" value="5" style="width: 100%; cursor: pointer; accent-color: var(--primary-color);">
-                    </div>
-
-                    <!-- Additional Features -->
-                    <div class="form-group" style="display: flex; flex-direction: column; gap: 15px;">
-                        <label style="font-weight: 600; color: #fff; text-align: left;">Select Add-on Features</label>
-                        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-muted);">
-                                <input type="checkbox" class="addon" value="1500" data-name="Advanced SEO" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Advanced SEO (+₹1,500)
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-muted);">
-                                <input type="checkbox" class="addon" value="1500" data-name="Custom Animations" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Custom Animations (+₹1,500)
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-muted);">
-                                <input type="checkbox" class="addon" value="3000" data-name="CMS Integration" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> CMS Integration (+₹3,000)
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-muted);">
-                                <input type="checkbox" class="addon" value="4000" data-name="Payment Integration" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Payment Integration (+₹4,000)
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-muted);">
-                                <input type="checkbox" class="addon" value="2500" data-name="Priority Support" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Priority 24/7 Support (+₹2,500)
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Total Estimation -->
-                    <div style="margin-top: 15px; padding: 20px; background: rgba(255, 255, 255, 0.02); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.03); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                        <div style="text-align: left;">
-                            <span style="font-size: 0.9rem; color: var(--text-muted); display: block; text-transform: uppercase; letter-spacing: 1px;">Estimated Price</span>
-                            <span id="estimatedPrice" style="font-size: 2.5rem; font-weight: 800; color: #fff;">₹8,000</span>
-                        </div>
-                        <a href="#" id="estimatorSubmit" target="_blank" class="btn btn-primary" style="text-decoration: none;">Get Started with this Config <i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </form>
-            </div>
-
             <!-- Custom Quote -->
-            <div class="custom-quote reveal-up">
                 <h3>Need something specific?</h3>
                 <p>We also offer custom development solutions tailored to your unique requirements.</p>
                 <a href="contact.html" class="btn btn-primary">Contact for Custom Quote</a>
@@ -329,26 +269,6 @@
         </div>
     </footer>
 
-    <!-- Floating Quick-Contact Widget -->
-    <div class="floating-contact-widget">
-        <button class="widget-toggle" aria-label="Open Contact Options">
-            <i class="fas fa-comment-alt"></i>
-        </button>
-        <div class="widget-options">
-            <a href="tel:+918849051678" class="widget-option call-option" aria-label="Call Us">
-                <i class="fas fa-phone"></i>
-                <span class="option-label">Call Now</span>
-            </a>
-            <a href="https://wa.me/918849051678?text=Hello%20Rajgor%20Digitals%2C%20I%20am%20interested%20in%20your%20web%20services." target="_blank" class="widget-option whatsapp-option" aria-label="Chat on WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-                <span class="option-label">WhatsApp</span>
-            </a>
-            <a href="mailto:rajgordigitals@gmail.com" class="widget-option email-option" aria-label="Email Us">
-                <i class="fas fa-envelope"></i>
-                <span class="option-label">Send Email</span>
-            </a>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
