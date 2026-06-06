@@ -231,7 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        let isAnimating = true;
+
         function animateParticles() {
+            if (!isAnimating) return;
+
             ctx.clearRect(0, 0, width, height);
 
             particles.forEach((p, index) => {
@@ -259,6 +263,19 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animateParticles);
         }
 
+        const canvasObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!isAnimating) {
+                        isAnimating = true;
+                        animateParticles();
+                    }
+                } else {
+                    isAnimating = false;
+                }
+            });
+        }, { threshold: 0.05 });
+
         window.addEventListener('resize', () => {
             resize();
             initParticles();
@@ -266,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resize();
         initParticles();
-        animateParticles();
+        canvasObserver.observe(heroBg);
     }
     // --- FAQ Toggle ---
     const faqItems = document.querySelectorAll('.faq-item');
