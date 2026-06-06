@@ -2402,13 +2402,22 @@ footer {
 
 @media (max-width: 768px) {
     .slider-btn {
-        display: none !important;
+        display: flex !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.8rem !important;
+    }
+    .slider-btn.prev-btn {
+        left: 5px !important;
+    }
+    .slider-btn.next-btn {
+        right: 5px !important;
     }
     .testimonial-slider-wrapper {
-        padding: 0 15px !important;
+        padding: 0 48px !important;
     }
     .testimonial-card {
-        padding: 40px 25px !important;
+        padding: 40px 20px !important;
     }
     .testimonial-card::before {
         top: 20px;
