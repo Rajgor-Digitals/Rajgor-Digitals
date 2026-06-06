@@ -284,4 +284,193 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- 1. Project Cost Estimator Logic ---
+    const estimatorForm = document.getElementById('estimatorForm');
+    if (estimatorForm) {
+        const typeSelect = document.getElementById('projectType');
+        const pageSlider = document.getElementById('pageCount');
+        const pageValue = document.getElementById('pageValue');
+        const addons = document.querySelectorAll('.addon');
+        const priceDisplay = document.getElementById('estimatedPrice');
+        const submitBtn = document.getElementById('estimatorSubmit');
+
+        function calculateEstimate() {
+            const basePrice = parseInt(typeSelect.value);
+            const pageCount = parseInt(pageSlider.value);
+            
+            // Slider value label
+            pageValue.textContent = pageCount + (pageCount === 1 ? ' Page' : ' Pages');
+            
+            // Calculate page cost (Base price includes first page, each extra page adds ₹500)
+            const pageCost = (pageCount - 1) * 500;
+            
+            // Calculate addon costs
+            let addonCost = 0;
+            const selectedAddons = [];
+            addons.forEach(checkbox => {
+                if (checkbox.checked) {
+                    addonCost += parseInt(checkbox.value);
+                    selectedAddons.push(checkbox.getAttribute('data-name'));
+                }
+            });
+
+            const total = basePrice + pageCost + addonCost;
+            priceDisplay.textContent = '₹' + total.toLocaleString('en-IN');
+
+            // Format WhatsApp Link
+            const projectTypeName = typeSelect.options[typeSelect.selectedIndex].text.split(' (')[0];
+            const message = `Hello Rajgor Digitals, I've calculated a custom project estimate on your website and would like to get started:
+
+- Project Type: ${projectTypeName}
+- Pages Requested: ${pageCount}
+- Extra Features: ${selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None'}
+- Estimated Price: ₹${total.toLocaleString('en-IN')}`;
+
+            submitBtn.href = `https://wa.me/918849051678?text=${encodeURIComponent(message)}`;
+        }
+
+        // Listeners
+        typeSelect.addEventListener('change', calculateEstimate);
+        pageSlider.addEventListener('input', calculateEstimate);
+        addons.forEach(box => box.addEventListener('change', calculateEstimate));
+
+        // Initial Run
+        calculateEstimate();
+    }
+
+
+    // --- 4. Swipeable Testimonials Carousel Logic ---
+    const testimonialTrack = document.querySelector('.testimonial-track');
+    const testimonialCards = document.querySelectorAll('.testimonial-track .testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dots .dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (testimonialTrack && testimonialCards.length > 0) {
+        let currentIndex = 0;
+        let autoSlideTimer = null;
+
+        function updateSlider(index) {
+            // Bound index
+            if (index < 0) index = testimonialCards.length - 1;
+            if (index >= testimonialCards.length) index = 0;
+
+            currentIndex = index;
+
+            // Move track
+            testimonialTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Update active states for cards
+            testimonialCards.forEach((card, idx) => {
+                if (idx === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Update active states for dots
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Arrow controls
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                resetAutoSlide();
+                updateSlider(currentIndex - 1);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                resetAutoSlide();
+                updateSlider(currentIndex + 1);
+            });
+        }
+
+        // Dot controls
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                resetAutoSlide();
+                updateSlider(index);
+            });
+        });
+
+        // Swipe support (Touch Events)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        testimonialTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        testimonialTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe Left -> Next
+                resetAutoSlide();
+                updateSlider(currentIndex + 1);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe Right -> Prev
+                resetAutoSlide();
+                updateSlider(currentIndex - 1);
+            }
+        }
+
+        // Auto sliding
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(() => {
+                updateSlider(currentIndex + 1);
+            }, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideTimer);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+    }
+
+
+    // --- 5. Floating Quick-Contact Widget Logic ---
+    const widgetToggle = document.querySelector('.widget-toggle');
+    const widgetOptions = document.querySelector('.widget-options');
+
+    if (widgetToggle && widgetOptions) {
+        widgetToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            widgetToggle.classList.toggle('active');
+            widgetOptions.classList.toggle('open');
+            
+            // Change icon toggling active
+            const icon = widgetToggle.querySelector('i');
+            if (widgetToggle.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-comment-alt';
+            }
+        });
+
+        // Close options when clicking anywhere else
+        document.addEventListener('click', () => {
+            if (widgetOptions.classList.contains('open')) {
+                widgetToggle.classList.remove('active');
+                widgetOptions.classList.remove('open');
+                widgetToggle.querySelector('i').className = 'fas fa-comment-alt';
+            }
+        });
+    }
+
 });
