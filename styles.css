@@ -1959,8 +1959,7 @@ footer {
 
 .legal-block a {
     color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
 }
 
 .legal-list {
