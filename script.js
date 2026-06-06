@@ -376,17 +376,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        let isHovered = false;
+
         // Auto sliding
         function startAutoSlide() {
+            if (autoSlideTimer) clearInterval(autoSlideTimer);
             autoSlideTimer = setInterval(() => {
-                updateSlider(currentIndex + 1);
-            }, 5000);
+                if (!isHovered) {
+                    updateSlider(currentIndex + 1);
+                }
+            }, 6000);
         }
 
         function resetAutoSlide() {
-            clearInterval(autoSlideTimer);
             startAutoSlide();
         }
+
+        // Hover controls
+        const sliderWrapper = document.querySelector('.testimonial-slider-wrapper');
+        if (sliderWrapper) {
+            sliderWrapper.addEventListener('mouseenter', () => {
+                isHovered = true;
+            });
+            sliderWrapper.addEventListener('mouseleave', () => {
+                isHovered = false;
+                resetAutoSlide();
+            });
+        }
+
+        // Keyboard navigation (comfort feature for PC)
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+            
+            const rect = testimonialTrack.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (inViewport) {
+                if (e.key === 'ArrowLeft') {
+                    resetAutoSlide();
+                    updateSlider(currentIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    resetAutoSlide();
+                    updateSlider(currentIndex + 1);
+                }
+            }
+        });
 
         startAutoSlide();
     }

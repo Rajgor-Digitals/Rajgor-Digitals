@@ -403,45 +403,47 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="container" style="position: relative; max-width: 900px;">
+        <div class="container" style="position: relative; max-width: 960px;">
             <h2 class="section-title reveal-up">Client Stories</h2>
             
-            <div class="testimonial-slider-container reveal-up" style="position: relative; overflow: hidden; margin-top: 40px;">
-                <div class="testimonial-track" style="display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform;">
-                    
-                    <div class="testimonial-card active" style="flex: 0 0 100%; width: 100%; box-sizing: border-box;">
-                        <p class="quote">"Rajgor Digitals transformed our outdated site into a modern masterpiece. Their
-                            attention to detail is unmatched."</p>
-                        <div class="client-info">
-                            <div class="client-avatar" style="background-image: url('https://ui-avatars.com/api/?name=Mundra+Bloggers&background=ffffff&color=000');"></div>
-                            <div>
-                                <h4>MundraBloggers</h4>
+            <div class="testimonial-slider-wrapper reveal-up">
+                <div class="testimonial-slider-container">
+                    <div class="testimonial-track">
+                        
+                        <div class="testimonial-card active">
+                            <p class="quote">"Rajgor Digitals transformed our outdated site into a modern masterpiece. Their
+                                attention to detail is unmatched."</p>
+                            <div class="client-info">
+                                <div class="client-avatar" style="background-image: url('https://ui-avatars.com/api/?name=Mundra+Bloggers&background=ffffff&color=000');"></div>
+                                <div>
+                                    <h4>MundraBloggers</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="testimonial-card" style="flex: 0 0 100%; width: 100%; box-sizing: border-box;">
-                        <p class="quote">"Rajgor Digitals designed a premium online presence for New Akshat Fashion. Thanks to their custom web engineering, we are now visible online, and the user feedback has been incredible!"</p>
-                        <div class="client-info">
-                            <div class="client-avatar" style="background-image: url('https://ui-avatars.com/api/?name=Akshat+Rajgor&background=ffffff&color=000');"></div>
-                            <div>
-                                <h4>Akshat Rajgor</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Owner, New Akshat Fashion</p>
+                        <div class="testimonial-card">
+                            <p class="quote">"Rajgor Digitals designed a premium online presence for New Akshat Fashion. Thanks to their custom web engineering, we are now visible online, and the user feedback has been incredible!"</p>
+                            <div class="client-info">
+                                <div class="client-avatar" style="background-image: url('https://ui-avatars.com/api/?name=Akshat+Rajgor&background=ffffff&color=000');"></div>
+                                <div>
+                                    <h4>Akshat Rajgor</h4>
+                                    <p class="client-role">Owner, New Akshat Fashion</p>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
-                    
                 </div>
 
                 <!-- Navigation Arrows -->
-                <button class="slider-btn prev-btn" aria-label="Previous Testimonial" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; transition: 0.3s; z-index: 10; outline: none;"><i class="fas fa-chevron-left"></i></button>
-                <button class="slider-btn next-btn" aria-label="Next Testimonial" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; transition: 0.3s; z-index: 10; outline: none;"><i class="fas fa-chevron-right"></i></button>
+                <button class="slider-btn prev-btn" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next-btn" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
             </div>
 
             <!-- Dots Indicators -->
-            <div class="testimonial-dots reveal-up" style="display: flex; justify-content: center; gap: 8px; margin-top: 25px;">
-                <span class="dot active" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background: #fff; cursor: pointer; transition: 0.3s; opacity: 1;"></span>
-                <span class="dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); cursor: pointer; transition: 0.3s; opacity: 1;"></span>
+            <div class="testimonial-dots reveal-up">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
             </div>
         </div>
     </section>
