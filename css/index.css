@@ -38,6 +38,7 @@
     gap: 80px; flex-wrap: wrap; margin-bottom: 60px;
 }
 .counter-number { font-size: 4rem; font-weight: 700; color: #fff; display: inline-block; }
+.counter-stat   { font-size: 2.6rem; font-weight: 700; color: #fff; display: inline-block; }
 .plus { font-size: 2.5rem; color: var(--primary-color); }
 .counter-label { text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; color: var(--text-muted); }
 
@@ -113,7 +114,7 @@
     .hero-subtitle { font-size: 1.1rem; }
     .hero-btns     { flex-direction: column; align-items: center; width: 100%; gap: 15px; }
     .counters-grid { gap: 15px; grid-template-columns: repeat(4,1fr); display: grid; }
-    .counter-number { font-size: 2.2rem; }
+    .counter-number, .counter-stat { font-size: 2.2rem; }
     .counter-label  { font-size: 0.7rem; }
     .testimonial-card { padding: 30px 20px; }
     .quote { font-size: 1.2rem; }

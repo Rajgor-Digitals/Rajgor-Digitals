@@ -182,6 +182,51 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterSection) counterObserver.observe(counterSection);
 
 
+    // --- Qualitative Stat Counter Animation (.counter-stat) ---
+    const statEls = document.querySelectorAll('.counter-stat');
+    let hasAnimatedStats = false;
+
+    const statObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasAnimatedStats) {
+            hasAnimatedStats = true;
+            statEls.forEach(el => {
+                const target   = parseFloat(el.getAttribute('data-count'));
+                const from     = parseFloat(el.getAttribute('data-from') || 0);
+                const prefix   = el.getAttribute('data-prefix') || '';
+                const suffix   = el.getAttribute('data-suffix') || '';
+                const decimals = parseInt(el.getAttribute('data-decimal') || 0);
+                const duration = 2000;
+
+                let startTime = null;
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    // easeOutQuart — fast start, slow finish
+                    const eased = 1 - Math.pow(1 - progress, 4);
+
+                    const current = from + (target - from) * eased;
+                    const display = decimals > 0
+                        ? current.toFixed(decimals)
+                        : Math.round(current);
+
+                    el.textContent = prefix + display + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = prefix + (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+                    }
+                }
+
+                requestAnimationFrame(step);
+            });
+        }
+    }, { threshold: 0.5 });
+
+    if (counterSection) statObserver.observe(counterSection);
+
+
     // --- Hero Canvas Particle Network ---
     const canvas = document.createElement('canvas');
     canvas.id = 'particle-canvas';
