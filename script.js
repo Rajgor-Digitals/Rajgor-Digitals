@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (alreadySeen) {
             // Skip preloader instantly on subsequent pages
             preloader.remove();
+            document.dispatchEvent(new Event('preloaderFinished'));
         } else {
             // First visit — show preloader and mark as seen
             sessionStorage.setItem('preloaderSeen', 'true');
@@ -38,7 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (displayValue >= 100 && isLoaded) {
                     setTimeout(() => {
                         preloader.classList.add('loaded');
-                        setTimeout(() => preloader.remove(), 1200);
+                        setTimeout(() => {
+                            preloader.remove();
+                            document.dispatchEvent(new Event('preloaderFinished'));
+                        }, 1200);
                     }, 400);
                     return;
                 }
@@ -56,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, remaining);
             });
         }
+    } else {
+        // No preloader on this page — fire event immediately
+        document.dispatchEvent(new Event('preloaderFinished'));
     }
 
     // --- Custom Cursor ---
@@ -489,5 +496,82 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoSlide();
     }
 
+    // --- Premium Scroll Progress Bar ---
+    const progressBar = document.querySelector('.scroll-progress-bar');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    // --- Dynamic Spotlight & 3D Tilt for Premium Cards ---
+    const interactiveCards = document.querySelectorAll('.service-card, .portfolio-item, .pricing-card, .process-step, .blog-card, .career-card, .team-card');
+    interactiveCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            if (window.innerWidth > 992) {
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (centerY - y) / 12;
+                const rotateY = (x - centerX) / 12;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // --- Magnetic Interactions for Buttons & Nav Links ---
+    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .contact-btn, .nav-link');
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 992) {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            }
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = '';
+        });
+    });
+
+    // --- Dynamic Word-Reveal Animations ---
+    const wordContainers = document.querySelectorAll('.word-reveal-container');
+    wordContainers.forEach(container => {
+        const text = container.textContent.trim();
+        const words = text.split(/\s+/);
+        container.innerHTML = words.map(word => {
+            return `<span class="word-mask"><span class="word-reveal">${word}</span></span>`;
+        }).join(' ');
+    });
+
+    document.addEventListener('preloaderFinished', () => {
+        setTimeout(() => {
+            document.querySelectorAll('.word-reveal-container').forEach(c => {
+                c.classList.add('word-reveal-active');
+            });
+        }, 200);
+    });
+
+    // --- Staggered Scroll Reveal System ---
+    const staggerGrids = document.querySelectorAll('.services-grid, .process-grid, .counters-grid, .pricing-grid, .portfolio-grid, .team-grid, .blog-grid, .careers-grid');
+    staggerGrids.forEach(grid => {
+        const reveals = grid.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+        reveals.forEach((el, index) => {
+            el.style.setProperty('--reveal-delay', `${index * 0.12}s`);
+        });
+    });
 
 });

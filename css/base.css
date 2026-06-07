@@ -431,11 +431,140 @@ footer { padding: 60px 0 0; background: #000; border-top: 1px solid #111; }
     to { opacity: 1; }
 }
 
+/* ---------- Premium Scroll Progress Bar ---------- */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #00e5ff, var(--primary-color));
+    background-size: 200% auto;
+    animation: glowShift 3s linear infinite;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    pointer-events: none;
+    transition: width 0.1s ease-out;
+}
+@keyframes glowShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- Ambient Aurora Blobs ---------- */
+.ambient-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.7;
+}
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    mix-blend-mode: screen;
+    opacity: 0.12;
+    animation: floatBlob 25s infinite alternate ease-in-out;
+}
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--primary-color) 0%, rgba(0,0,0,0) 70%);
+    animation-duration: 35s;
+}
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, #00e5ff 0%, rgba(0,0,0,0) 70%);
+    animation-duration: 45s;
+    animation-delay: -5s;
+}
+.blob-3 {
+    top: 40%;
+    left: 50%;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(0,0,0,0) 70%);
+    animation-duration: 40s;
+    animation-delay: -10s;
+}
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(5vw, 10vh) scale(1.15) rotate(180deg); }
+    100% { transform: translate(-5vw, -5vh) scale(0.95) rotate(360deg); }
+}
+
+/* ---------- Interactive Spotlight & 3D Card Hover ---------- */
+.service-card, .portfolio-item, .pricing-card, .process-step, .blog-card, .career-card {
+    position: relative;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.service-card::after, .portfolio-item::after, .pricing-card::after, .process-step::after, .blog-card::after, .career-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(350px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.05), transparent 80%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.service-card:hover::after, .portfolio-item:hover::after, .pricing-card:hover::after, .process-step:hover::after, .blog-card:hover::after, .career-card:hover::after {
+    opacity: 1;
+}
+.service-card:hover .service-icon, 
+.portfolio-item:hover .portfolio-img-wrap, 
+.pricing-card:hover .price-amount {
+    transform: translateZ(25px);
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ---------- Magnetic Interaction ---------- */
+.btn, .nav-link, .contact-btn {
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* ---------- Text Reveal Masking ---------- */
+.word-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    margin-right: 0.22em;
+}
+.word-reveal {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+.word-reveal-active .word-reveal {
+    transform: translateY(0);
+}
+
 /* ---------- Scroll Reveal ---------- */
-.reveal-up, .reveal-left, .reveal-right { opacity: 0; transition: 1s all ease; }
-.reveal-up    { transform: translateY(50px); }
-.reveal-left  { transform: translateX(-50px); }
-.reveal-right { transform: translateX(50px); }
+.reveal-up, .reveal-left, .reveal-right {
+    opacity: 0;
+    transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1) all;
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: transform, opacity;
+}
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
 .reveal-active { opacity: 1; transform: translate(0,0); }
 
 /* ---------- Testimonial Avatar Initials ---------- */

@@ -62,6 +62,16 @@
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+
+    <!-- Ambient Background Blobs -->
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <div id="preloader">
         <div class="preloader-content">
             <div class="spinner-container">
@@ -114,7 +124,10 @@
     <!-- Blog Header -->
     <section style="padding: 150px 0 60px; background: #000; text-align: center;">
         <div class="container">
-            <h1 class="section-title reveal-up">Our Blog</h1>
+            <h1 class="section-title word-reveal-container">
+                <span class="word-mask"><span class="word-reveal">Our</span></span>
+                <span class="word-mask"><span class="word-reveal gradient-text">Blog</span></span>
+            </h1>
             <p class="section-subtitle reveal-up">Web development insights, tips, and industry trends</p>
         </div>
     </section>

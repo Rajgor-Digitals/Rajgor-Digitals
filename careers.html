@@ -37,7 +37,8 @@
     <link rel="stylesheet" href="libs/font-awesome/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/careers.css">
 
     <script type="application/ld+json">
     {
@@ -62,6 +63,16 @@
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+
+    <!-- Ambient Background Blobs -->
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <div id="preloader">
         <div class="preloader-content">
             <div class="spinner-container">
@@ -114,8 +125,12 @@
     <!-- Hero -->
     <section style="padding: 150px 0 80px; background: #000; text-align: center;">
         <div class="container">
-            <h1 class="hero-title reveal-up" style="opacity:1; animation:none;">
-                Build the Future <span class="gradient-text">With Us</span>
+            <h1 class="hero-title word-reveal-container">
+                <span class="word-mask"><span class="word-reveal">Build</span></span>
+                <span class="word-mask"><span class="word-reveal">the</span></span>
+                <span class="word-mask"><span class="word-reveal">Future</span></span>
+                <span class="word-mask"><span class="word-reveal gradient-text">With</span></span>
+                <span class="word-mask"><span class="word-reveal gradient-text">Us</span></span>
             </h1>
             <p class="hero-subtitle reveal-up" style="max-width: 600px; margin: 1rem auto 2rem;">
                 We're a small but ambitious team of developers and designers. If you're passionate about crafting exceptional digital experiences, we'd love to hear from you.
