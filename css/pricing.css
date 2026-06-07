@@ -48,6 +48,8 @@
 .features-list { list-style: none; margin: 0 0 30px; display: flex; flex-direction: column; gap: 12px; }
 .features-list li { display: flex; align-items: center; gap: 10px; color: var(--text-muted); }
 .features-list li i { color: var(--primary-color); font-size: 0.85rem; flex-shrink: 0; }
+.feature-excluded { opacity: 0.4; }
+.feature-excluded i { color: rgba(255,255,255,0.3) !important; }
 
 /* ---------- Custom Quote ---------- */
 .custom-quote {

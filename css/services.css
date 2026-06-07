@@ -102,3 +102,29 @@
     .services { padding-top: 90px; }
     .faq-section .faq-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Pricing Teaser Banner ---------- */
+.pricing-teaser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 50px 0 0;
+    padding: 22px 36px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+.pricing-teaser i.fa-tag { color: var(--primary-color); font-size: 1rem; }
+.pricing-teaser strong { color: #fff; }
+.pricing-teaser-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #fff; font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 1px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+.pricing-teaser-link:hover { border-color: #fff; }
