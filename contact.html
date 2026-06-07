@@ -10,21 +10,21 @@
     <link rel="shortcut icon" href="images/logo.png">
 
     <!-- Canonical Tag -->
-    <link rel="canonical" href="https://www.rajgordigitals.in/contact.html">
+    <link rel="canonical" href="https://rajgordigitals.in/contact.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rajgordigitals.in/contact.html">
+    <meta property="og:url" content="https://rajgordigitals.in/contact.html">
     <meta property="og:title" content="Get a Free Quote | Custom Web Development Consultation">
     <meta property="og:description" content="Ready to start your project? Contact Rajgor Digitals for a free custom website development consultation. Speak with our professional web developers today.">
-    <meta property="og:image" content="https://www.rajgordigitals.in/images/logo.webp">
+    <meta property="og:image" content="https://rajgordigitals.in/images/logo.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.rajgordigitals.in/contact.html">
+    <meta property="twitter:url" content="https://rajgordigitals.in/contact.html">
     <meta property="twitter:title" content="Get a Free Quote | Custom Web Development Consultation">
     <meta property="twitter:description" content="Ready to start your project? Contact Rajgor Digitals for a free custom website development consultation. Speak with our professional web developers today.">
-    <meta property="twitter:image" content="https://www.rajgordigitals.in/images/logo.webp">
+    <meta property="twitter:image" content="https://rajgordigitals.in/images/logo.webp">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +32,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/all.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/contact.css">
+
 
     <script type="application/ld+json">
     {
@@ -46,13 +48,13 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.rajgordigitals.in/"
+      "item": "https://rajgordigitals.in/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Contact Us",
-      "item": "https://www.rajgordigitals.in/contact.html"
+      "item": "https://rajgordigitals.in/contact.html"
     }
   ]
 }
@@ -64,8 +66,8 @@
   "mainEntity": {
     "@type": "Organization",
     "name": "Rajgor Digitals",
-    "url": "https://www.rajgordigitals.in",
-    "logo": "https://www.rajgordigitals.in/images/logo.webp",
+    "url": "https://rajgordigitals.in",
+    "logo": "https://rajgordigitals.in/images/logo.webp",
     "telephone": "+918849051678",
     "address": {
       "@type": "PostalAddress",
@@ -134,37 +136,107 @@
         <a href="contact.html" class="mobile-link accent-color">Contact Us</a>
     </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container contact-container">
-            <div class="contact-info reveal-left">
-                <h2 class="section-title">Consult with Our Web Developers</h2>
-                <p>Ready to scale your business with custom website development services? Get a free consultation today.
-                </p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+917359698595" style="color: inherit; text-decoration: none;">+91 7359698595</a>,
-                        <a href="tel:+918849051678" style="color: inherit; text-decoration: none;">+91 8849051678</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:rajgordigitals@gmail.com">rajgordigitals@gmail.com</a>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/918849051678?text=Hello%20Rajgor%20Digitals,%20I%20am%20interested%20in%20your%20web%20development%20services."
-                            target="_blank" style="color: inherit; text-decoration: none;" rel="noopener noreferrer">Chat on WhatsApp</a>
-                    </div>
-                    <div class="contact-item">
+    <!-- Contact Hero -->
+    <section class="contact-hero" id="contact">
+        <div class="container">
+            <div class="reveal-up">
+                <h1>Let's Build Something <span class="gradient-text">Extraordinary</span></h1>
+                <p>Ready to scale your business with a world-class website? Reach out directly — we typically respond within a few hours.</p>
+                <div class="contact-hero-badges">
+                    <div class="contact-badge">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Kutch, Gujarat</span>
+                        <span>Kutch, Gujarat, India</span>
+                    </div>
+                    <div class="contact-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon – Sat, 9 AM – 6 PM IST</span>
+                    </div>
+                    <div class="contact-badge">
+                        <i class="fas fa-bolt"></i>
+                        <span>Response: <strong>2–4 hours</strong></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Channels -->
+    <section class="contact-channels">
+        <div class="container">
+            <div class="contact-channels-grid">
+
+                <!-- WhatsApp — Featured -->
+                <a href="https://wa.me/918849051678?text=Hello%20Rajgor%20Digitals,%20I%20am%20interested%20in%20your%20web%20development%20services."
+                    target="_blank" rel="noopener noreferrer"
+                    class="contact-channel-card featured reveal-up">
+                    <div class="contact-channel-icon" style="background: rgba(37,211,102,0.15); color: #25D366; border-radius: 50%;">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-channel-body">
+                        <p class="contact-channel-label">Fastest Response</p>
+                        <p class="contact-channel-title">Chat on WhatsApp</p>
+                        <p class="contact-channel-desc">Start a conversation instantly. Share your project brief, get a quote, or ask anything — we're just a message away.</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square contact-channel-arrow"></i>
+                </a>
+
+                <!-- Phone - Shrikant -->
+                <a href="tel:+918849051678" class="contact-channel-card reveal-up">
+                    <div class="contact-channel-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-channel-body">
+                        <p class="contact-channel-label">Call Us</p>
+                        <p class="contact-channel-title">+91 8849 051 678</p>
+                        <p class="contact-channel-desc">Shrikant Rajgor — Founder &amp; Developer. Available Mon–Sat.</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square contact-channel-arrow"></i>
+                </a>
+
+                <!-- Phone - Gaurav -->
+                <a href="tel:+917359698595" class="contact-channel-card reveal-up" style="animation-delay: 0.05s;">
+                    <div class="contact-channel-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-channel-body">
+                        <p class="contact-channel-label">Call Us</p>
+                        <p class="contact-channel-title">+91 7359 698 595</p>
+                        <p class="contact-channel-desc">Gaurav Rajgor — Founder &amp; Developer. Available Mon–Sat.</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square contact-channel-arrow"></i>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:rajgordigitals@gmail.com" class="contact-channel-card reveal-up" style="animation-delay: 0.1s;">
+                    <div class="contact-channel-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-channel-body">
+                        <p class="contact-channel-label">Email</p>
+                        <p class="contact-channel-title">rajgordigitals@gmail.com</p>
+                        <p class="contact-channel-desc">Send us your project details, scope, or any queries. We'll reply with a detailed response.</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square contact-channel-arrow"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/rajgordigitals" target="_blank" rel="noopener noreferrer"
+                    class="contact-channel-card reveal-up" style="animation-delay: 0.15s;">
+                    <div class="contact-channel-icon" style="background: rgba(10,102,194,0.15); color: #0A66C2;">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-channel-body">
+                        <p class="contact-channel-label">LinkedIn</p>
+                        <p class="contact-channel-title">Rajgor Digitals</p>
+                        <p class="contact-channel-desc">Connect professionally, view our company profile and recent updates.</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square contact-channel-arrow"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer>

@@ -1,0 +1,47 @@
+/* ============================================
+   CAREERS.CSS — Careers page specific styles
+   Rajgor Digitals
+   ============================================ */
+
+.careers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.career-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 35px 30px;
+    display: flex; flex-direction: column;
+    gap: 15px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.career-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+.career-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.career-tag {
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; color: var(--text-muted);
+}
+.career-card h3 { font-size: 1.3rem; color: #fff; margin: 0; }
+.career-card p  { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; flex-grow: 1; }
+
+.career-skills { display: flex; gap: 8px; flex-wrap: wrap; }
+.career-skills span {
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 4px 10px; color: #ccc;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .careers-grid { grid-template-columns: 1fr; }
+}

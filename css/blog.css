@@ -1,0 +1,58 @@
+/* ============================================
+   BLOG.CSS — Blog page specific styles
+   Rajgor Digitals
+   ============================================ */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.blog-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.blog-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+.blog-img-wrap {
+    height: 180px;
+    background: #0d0d0d;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.blog-img-placeholder { font-size: 3rem; color: rgba(255,255,255,0.08); }
+
+.blog-body {
+    padding: 28px;
+    display: flex; flex-direction: column;
+    gap: 12px; flex-grow: 1;
+}
+.blog-meta { display: flex; align-items: center; gap: 12px; }
+.blog-tag {
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    padding: 3px 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; color: var(--text-muted);
+}
+.blog-date { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+.blog-card h2 { font-size: 1.1rem; line-height: 1.5; color: #fff; margin: 0; }
+.blog-card p   { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; flex-grow: 1; }
+.blog-read-more {
+    display: inline-flex; align-items: center;
+    gap: 8px; font-size: 0.85rem; font-weight: 600;
+    color: #fff; margin-top: 5px;
+    transition: gap 0.3s ease;
+}
+.blog-read-more:hover { gap: 12px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .blog-grid { grid-template-columns: 1fr; }
+}
